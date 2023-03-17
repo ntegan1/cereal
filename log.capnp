@@ -1803,22 +1803,19 @@ struct Joystick {
   # convenient for debug and live tuning
   axes @0: List(Float32);
   buttons @1: List(Bool);
-  maneuvers @2: List(Maneuver);
+  maneuver @2: Maneuver;
 }
 
 struct Maneuver {
   # convenient?
-  messageType @0: MessageType;
-  enum MessageType {
-    noop @0;
-    begin @1;
-  }
   union {
-    longitudinalManeuver @1 :LongitudinalManeuver;
+    unset @1 :Void;
+    maneuverPlan @2 :ManeuverPlan;
+    maneuverBegin @3 :Void;
   }
-  struct LongitudinalManeuver {
-    plan @0: List(LongitudinalManeuverPoint);
-    struct LongitudinalManeuverPoint {
+  struct ManeuverPlan {
+    plan @0: List(ManeuverPlanPoint);
+    struct ManeuverPlanPoint {
       t @0 :Float32;
       v @1 :Float32;
       a @2 :Float32;

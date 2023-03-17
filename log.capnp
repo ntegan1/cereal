@@ -1810,9 +1810,9 @@ struct Joystick {
 struct Maneuver {
   # convenient?
   union {
-    unset @1 :Void;
-    maneuverPlan @2 :ManeuverPlan;
-    maneuverBegin @3 :Void;
+    unset @0 :Void;
+    maneuverPlan @1 :ManeuverPlan;
+    maneuverBegin @2 :Void;
   }
   struct ManeuverPlan {
     plan @0: List(ManeuverPlanPoint);

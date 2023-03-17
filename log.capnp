@@ -954,12 +954,15 @@ struct LongitudinalPlan @0xe00b5b3eba12876c {
 
   solverExecutionTime @35 :Float32;
 
+  maneuver @36 :Maneuver;
+
   enum LongitudinalPlanSource {
     cruise @0;
     lead0 @1;
     lead1 @2;
     lead2 @3;
     e2e @4;
+    maneuver @5;
   }
 
   # deprecated
@@ -1803,7 +1806,6 @@ struct Joystick {
   # convenient for debug and live tuning
   axes @0: List(Float32);
   buttons @1: List(Bool);
-  maneuver @2: Maneuver;
 }
 
 struct Maneuver {
